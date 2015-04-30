@@ -140,7 +140,7 @@
       var refresh_el = $.proxy(refresh, this);
       refresh_el();
       var $s = $t.settings;
-      if ($s.refreshMillis > 0) {
+      if ($s.refreshMillis > 0 && !this._timeagoInterval) {
         this._timeagoInterval = setInterval(refresh_el, $s.refreshMillis);
       }
     },
