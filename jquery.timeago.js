@@ -9,7 +9,7 @@
  * @license MIT License - http://www.opensource.org/licenses/mit-license.php
  *
  * For usage and examples, visit:
- * http://timeago.yarp.com/
+ * http://timeago.yarp.com/refr
  *
  * Copyright (c) 2008-2015, Ryan McGeary (ryan -[at]- mcgeary [*dot*] org)
  */
@@ -181,6 +181,9 @@
       $(this).timeago("dispose");
       return this;
     }
+    if(this._timeago_refresh && this._timeago_refresh > Date.now()-60*1000)
+      return;
+    this._timeago_refresh = Date.now();
 
     var data = prepareData(this);
     var $s = $t.settings;
